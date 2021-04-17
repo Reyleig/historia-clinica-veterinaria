@@ -1,1 +1,58 @@
-<p>mascota works!</p>
+<div class="formusuario">
+    <h2>Crear Mascota</h2>
+    <form [formGroup]="mascotaForm" (ngSubmit)="guardar()">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Raza</label>
+            <input type="text" formControlName="raza" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Documento Dueño</label>
+            <select class="form-select" aria-label="Default select example" formControlName="usuario_id"
+                class="form-control">
+                <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+                <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Sexo</label>
+            <select class="form-select" aria-label="Default select example" formControlName="sexo" class="form-control">
+                <option value="Masculino">Macho</option>
+                <option value="Femenino">Hembra</option>
+            </select>
+        </div>
+
+
+        <button type="submit" [disabled]="mascotaForm.invalid" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+<div class="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>TIPO DOCUMENTO</th>
+                <th>SEXO</th>
+                <th>OPCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of mascotas">
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.raza}}</td>
+                <td>{{item.usuario_id}}</td>
+                <td>{{item.sexo}}</td>
+                <td>
+                    <button type="button" class="btn btn-success formbtn" (click)="editar(item)">Editar</button>
+                    <button type="button" class="btn btn-danger formbtn" (click)="eliminar(item)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

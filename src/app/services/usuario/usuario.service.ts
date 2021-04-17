@@ -17,4 +17,7 @@ export class UsuarioService {
   public saveUsuario (usuario:any): Observable<any>{
     return this.HttpClient.post(this.API_SERVER,usuario);
   }
+  public deleteUsuario(id:any):Observable<any>{
+    return this.HttpClient.delete(this.API_SERVER+"delete/"+id);
+  }
 }

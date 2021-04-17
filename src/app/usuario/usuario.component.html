@@ -33,10 +33,11 @@
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+
+        <button type="submit" [disabled]="usuarioForm.invalid" class="btn btn-primary">Guardar</button>
     </form>
 </div>
-<div>
+<div class="">
     <table class="table">
         <thead>
             <tr>
@@ -47,17 +48,22 @@
                 <th>NUMERO DOCUMENTO</th>
                 <th>ESTADO</th>
                 <th>SEXO</th>
+                <th>OPCIONES</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of usuarios">
-                <th>{{item.id}}</th>
-                <th>{{item.nombre}}</th>
-                <th>{{item.apellido}}</th>
-                <th>{{item.tipo_documento}}</th>
-                <th>{{item.documento_identificacion}}</th>
-                <th>{{item.estado}}</th>
-                <th>{{item.sexo}}</th>
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.tipo_documento}}</td>
+                <td>{{item.documento_identificacion}}</td>
+                <td>{{item.estado}}</td>
+                <td>{{item.sexo}}</td>
+                <td>
+                    <button type="button" class="btn btn-success formbtn" (click)="editar(item)">Editar</button>
+                    <button type="button" class="btn btn-danger formbtn" (click)="eliminar(item)">Eliminar</button>
+                </td>
             </tr>
         </tbody>
     </table>
