@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from '../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -6,10 +8,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
+  usuarioForm = new FormGroup({
+    nombre: new FormControl(),
+    apellido: new FormControl(),
+    tipo_documento: new FormControl(),
+    documento_identificacion: new FormControl(),
+    estado: new FormControl(),
+    sexo: new FormControl()
+  });
 
-  constructor() { }
+  constructor(
+    public fb: FormBuilder,
+    public usuarioService: UsuarioService,
+  ) { }
 
   ngOnInit(): void {
+    this.usuarioForm = this.fb.group({
+      id: [''],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      tipo_documento: ['', Validators.required],
+      documento_identificacion: ['', Validators.required],
+      estado: ['', Validators.required],
+      sexo: ['', Validators.required],
+    });
+  }
+  
+  guardar(): void {
+    this.usuarioService.saveUsuario(this.usuarioForm.value).subscribe(resp=>{
+
+    }, error => { console.error(error) }
+    )
+
   }
 
 }

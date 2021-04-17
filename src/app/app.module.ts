@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,13 @@ import { HistoriaclinicaComponent } from './historiaclinica/historiaclinica.comp
 import { MascotaComponent } from './mascota/mascota.component';
 import { DetalleshistoriacComponent } from './detalleshistoriac/detalleshistoriac.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
+const routes: Routes = [
+  { path: 'usuario', component: UsuarioComponent },
+  {path: '', component: UsuarioComponent, pathMatch: 'full'},
+    {path: '**', redirectTo: '/',pathMatch: 'full'},
+];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +36,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
