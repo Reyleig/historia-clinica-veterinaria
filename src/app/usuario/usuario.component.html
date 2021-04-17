@@ -11,7 +11,11 @@
         </div>
         <div class="form-group">
             <label>Tipo Documento</label>
-            <input type="text" formControlName="tipo_documento" class="form-control">
+            <select class="form-select" aria-label="Default select example" formControlName="tipo_documento"
+                class="form-control">
+                <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+                <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+            </select>
         </div>
         <div class="form-group">
             <label>Numero Documento</label>
@@ -23,12 +27,38 @@
         </div>
         <div class="form-group">
             <label>Sexo</label>
-            <input type="text" formControlName="sexo" class="form-control">
+            <select class="form-select" aria-label="Default select example" formControlName="sexo" class="form-control">
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
         </div>
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
-
-
-
+        <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
+</div>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>TIPO DOCUMENTO</th>
+                <th>NUMERO DOCUMENTO</th>
+                <th>ESTADO</th>
+                <th>SEXO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of usuarios">
+                <th>{{item.id}}</th>
+                <th>{{item.nombre}}</th>
+                <th>{{item.apellido}}</th>
+                <th>{{item.tipo_documento}}</th>
+                <th>{{item.documento_identificacion}}</th>
+                <th>{{item.estado}}</th>
+                <th>{{item.sexo}}</th>
+            </tr>
+        </tbody>
+    </table>
 </div>

@@ -14,14 +14,7 @@ import { UsuarioService } from './services/usuario/usuario.service';
 export class AppComponent implements OnInit {
 
 
-  usuarioForm = new FormGroup({
-    nombre: new FormControl(),
-    apellido: new FormControl(),
-    tipo_documento: new FormControl(),
-    documento_identificacion: new FormControl(),
-    estado: new FormControl(),
-    sexo: new FormControl()
-  });
+ 
   colaborador: any;
   detalleshistoriac: any;
   historiaclinica: any;
@@ -42,23 +35,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.usuarioForm = this.fb.group({
-      id: [''],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      tipo_documento: ['', Validators.required],
-      documento_identificacion: ['', Validators.required],
-      estado: ['', Validators.required],
-      sexo: ['', Validators.required],
-    });
-  }
-
-  guardar(): void {
-    this.usuarioService.saveUsuario(this.usuarioForm.value).subscribe(resp=>{
-
-    }, error => { console.error(error) }
-    )
 
   }
+
 
 }

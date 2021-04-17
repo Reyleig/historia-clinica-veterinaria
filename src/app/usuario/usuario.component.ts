@@ -17,6 +17,8 @@ export class UsuarioComponent implements OnInit {
     sexo: new FormControl()
   });
 
+  usuarios: any;
+
   constructor(
     public fb: FormBuilder,
     public usuarioService: UsuarioService,
@@ -32,14 +34,22 @@ export class UsuarioComponent implements OnInit {
       estado: ['', Validators.required],
       sexo: ['', Validators.required],
     });
+    this.usuarioService.getAllusuario().subscribe(resp=>
+      {this.usuarios=resp;
+      },
+      error=>{console.error(error)}
+      )
   }
   
   guardar(): void {
     this.usuarioService.saveUsuario(this.usuarioForm.value).subscribe(resp=>{
-
-    }, error => { console.error(error) }
+      this.usuarioForm.reset();
+      alert("Guardado correctamente");
+    }, error => { console.error(error) 
+      alert("Se a producido un error intente mas tarde");}
     )
 
   }
+
 
 }
