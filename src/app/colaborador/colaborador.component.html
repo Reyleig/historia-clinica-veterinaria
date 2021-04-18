@@ -13,8 +13,8 @@
             <label>Cargo</label>
             <select class="form-select" aria-label="Default select example" formControlName="cargo"
                 class="form-control">
-                <option value="Cedula de ciudadania">Auxiliar veterinaria</option>
-                <option value="Tarjeta de identidad">Doctor veterinariod</option>
+                <option value="auxiliar_veterinaria">Auxiliar veterinaria</option>
+                <option value="doctor_veterinario">Doctor veterinario</option>
             </select>
         </div>
         <div class="form-group">
@@ -31,8 +31,8 @@
             <label>Tipo Documento</label>
             <select class="form-select" aria-label="Default select example" formControlName="tipo_documento"
                 class="form-control">
-                <option value="cedula_de_ciudadania">Cedula de ciudadania</option>
-                <option value="pasaporte">Pasaporte</option>
+                <option value="cc">Cedula de ciudadania</option>
+                <option value="pas">Pasaporte</option>
             </select>
         </div>
         <div class="form-group">
@@ -41,7 +41,7 @@
         </div>
 
 
-        <button type="submit" [disabled]="usuarioForm.invalid" class="btn btn-primary">Guardar</button>
+        <button type="submit" [disabled]="colaboradorForm.invalid" class="btn btn-primary">Guardar</button>
     </form>
 </div>
 <div class="">
@@ -59,7 +59,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of colaborador">
+            <tr *ngFor="let item of colaboradores">
                 <td>{{item.id}}</td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.apellido}}</td>
