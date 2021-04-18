@@ -11,7 +11,7 @@ export class UsuarioService {
 
   constructor(private HttpClient: HttpClient) { }
 
-  public getAllusuario(): Observable<any>{
+  public getAllUsuario(): Observable<any>{
     return this.HttpClient.get(this.API_SERVER);
   }
   public saveUsuario (usuario:any): Observable<any>{

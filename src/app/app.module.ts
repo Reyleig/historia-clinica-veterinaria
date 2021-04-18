@@ -17,6 +17,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 const routes: Routes = [
   { path: 'usuario', component: UsuarioComponent },
   { path: 'mascota', component: MascotaComponent },
+  { path: 'historiaclinica', component: HistoriaclinicaComponent },
+  { path: 'colaborador', component: ColaboradorComponent },
+  { path: 'detalleshistoriaclinica', component: DetalleshistoriacComponent },
   {path: '', component: UsuarioComponent, pathMatch: 'full'},
     {path: '**', redirectTo: '/',pathMatch: 'full'},
 ];

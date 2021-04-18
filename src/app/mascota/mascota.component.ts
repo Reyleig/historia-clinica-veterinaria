@@ -33,15 +33,18 @@ export class MascotaComponent implements OnInit {
       sexo: ['', Validators.required],
     });
 
-      this.usuarioService.getAllusuario().subscribe(resp=>
+      this.usuarioService.getAllUsuario().subscribe(resp=>
         {this.usuarios=resp;
         },
         error=>{console.error(error)});
+
         this.mascotaService.getAllMascota().subscribe(resp => {
           this.mascotas = resp;
         },
           error => { console.error(error) }
         );
+
+
     }
 
 
@@ -61,7 +64,7 @@ guardar(): void {
 eliminar(mascota: { id: any; }){
   this,this.mascotaService.deleteMascota(mascota.id).subscribe(resp=>{
     if(resp!=true){
-      this.mascotas.pop(mascota); 
+     this.mostrar();
     }
     alert("Mascota eliminada");
    
@@ -75,6 +78,14 @@ editar(mascota: { id: any; nombre: any; raza: any; usuario: any; sexo: any; }){
     usuario: mascota.usuario,
     sexo: mascota.sexo,
   })
+}
+
+mostrar(){
+  this.mascotaService.getAllMascota().subscribe(resp => {
+    this.mascotas = resp;
+  },
+    error => { console.error(error) }
+  );
 }
 
 }

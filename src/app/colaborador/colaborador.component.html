@@ -1,1 +1,77 @@
-<p>colaborador works!</p>
+<div class="formusuario">
+    <h2>Crear Colaborador</h2>
+    <form [formGroup]="colaboradorForm" (ngSubmit)="guardar()">
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" formControlName="apellido" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Cargo</label>
+            <select class="form-select" aria-label="Default select example" formControlName="cargo"
+                class="form-control">
+                <option value="Cedula de ciudadania">Auxiliar veterinaria</option>
+                <option value="Tarjeta de identidad">Doctor veterinariod</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Especialidad</label>
+            <select class="form-select" aria-label="Default select example" formControlName="especialidad"
+                class="form-control">
+                <option value="ninguna">Ninguna</option>
+                <option value="cardiologo">Cardiologo</option>
+                <option value="pediatra">Pediatra</option>
+                <option value="nutricionista">Nutricionista</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Tipo Documento</label>
+            <select class="form-select" aria-label="Default select example" formControlName="tipo_documento"
+                class="form-control">
+                <option value="cedula_de_ciudadania">Cedula de ciudadania</option>
+                <option value="pasaporte">Pasaporte</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Numero Documento</label>
+            <input type="number" formControlName="documento_identificacion" class="form-control">
+        </div>
+
+
+        <button type="submit" [disabled]="usuarioForm.invalid" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+<div class="">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>CARGO</th>
+                <th>ESPECIALIDAD</th>
+                <th>TIPO DOCUMENTO</th>
+                <th>NUMERO DOCUMENTO</th>
+                <th>OPCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of colaborador">
+                <td>{{item.id}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.cargo}}</td>
+                <td>{{item.especialidad}}</td>
+                <td>{{item.tipo_documento}}</td>
+                <td>{{item.documento_identificacion}}</td>
+                <td>
+                    <button type="button" class="btn btn-success formbtn" (click)="editar(item)">Editar</button>
+                    <button type="button" class="btn btn-danger formbtn" (click)="eliminar(item)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

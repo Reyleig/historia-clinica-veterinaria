@@ -34,35 +34,37 @@ export class UsuarioComponent implements OnInit {
       estado: ['', Validators.required],
       sexo: ['', Validators.required],
     });
-    this.usuarioService.getAllusuario().subscribe(resp=>
-      {this.usuarios=resp;
-      },
-      error=>{console.error(error)}
-      )
+    this.usuarioService.getAllUsuario().subscribe(resp => {
+      this.usuarios = resp;
+    },
+      error => { console.error(error) }
+    );
   }
-  
+
   guardar(): void {
-    this.usuarioService.saveUsuario(this.usuarioForm.value).subscribe(resp=>{
+    this.usuarioService.saveUsuario(this.usuarioForm.value).subscribe(resp => {
       this.usuarioForm.reset();
-      this.usuarios=this.usuarios.filter((usuario: { id: any; })=> resp.id!=usuario.id);
+      this.usuarios = this.usuarios.filter((usuario: { id: any; }) => resp.id != usuario.id);
       this.usuarios.push(resp);
       alert("Guardado correctamente");
-    }, error => { console.error(error) 
-      alert("Se a producido un error intente mas tarde");}
+    }, error => {
+      console.error(error)
+      alert("Se a producido un error intente mas tarde");
+    }
     )
   }
-  eliminar(usuario: { id: any; }){
-    this,this.usuarioService.deleteUsuario(usuario.id).subscribe(resp=>{
-      if(resp==true){
-        this.usuarios.pop(usuario)
-        alert("Usuario eliminado");
-        this.usuarios.push(resp);
+
+  eliminar(usuario: { id: any; }) {
+    this, this.usuarioService.deleteUsuario(usuario.id).subscribe(resp => {
+      if (resp !== true) {
+        this.mostrar();
       }
+      alert("Usuario eliminado");
     })
   }
-  editar(usuario: { id: any; nombre: any; apellido: any; tipo_documento: any; documento_identificacion: any; estado: any; sexo: any; }){
+  editar(usuario: { id: any; nombre: any; apellido: any; tipo_documento: any; documento_identificacion: any; estado: any; sexo: any; }) {
     this.usuarioForm.setValue({
-      id:usuario.id,
+      id: usuario.id,
       nombre: usuario.nombre,
       apellido: usuario.apellido,
       tipo_documento: usuario.tipo_documento,
@@ -71,6 +73,11 @@ export class UsuarioComponent implements OnInit {
       sexo: usuario.sexo,
     })
   }
-
-
+  mostrar() {
+    this.usuarioService.getAllUsuario().subscribe(resp => {
+      this.usuarios = resp;
+    },
+      error => { console.error(error) }
+    );
+  }
 }
