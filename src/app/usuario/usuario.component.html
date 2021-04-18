@@ -1,40 +1,47 @@
 <div class="formusuario">
     <h2>Crear Usuario</h2>
     <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+ 
         <div class="form-group">
             <label>Nombre</label>
-            <input type="text" formControlName="nombre" class="form-control">
+            <input type="text" formControlName="nombre" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Apellido</label>
-            <input type="text" formControlName="apellido" class="form-control">
+            <input type="text" formControlName="apellido" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Tipo Documento</label>
             <select class="form-select" aria-label="Default select example" formControlName="tipo_documento"
-                class="form-control">
-                <option value="Cedula_de_ciudadania">Cedula de ciudadania</option>
-                <option value="Tarjeta_de_identidad">Tarjeta de identidad</option>
+                class="form-control shadow-sm  bg-body rounded">
+                <option value="CC">Cedula de ciudadania</option>
+                <option value="TI">Tarjeta de identidad</option>
             </select>
         </div>
         <div class="form-group">
             <label>Numero Documento</label>
-            <input type="number" formControlName="documento_identificacion" class="form-control">
+            <input type="number" formControlName="documento_identificacion"
+                class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Estado</label>
-            <input type="text" formControlName="estado" class="form-control">
+            <input type="text" formControlName="estado" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Sexo</label>
-            <select class="form-select" aria-label="Default select example" formControlName="sexo" class="form-control">
+            <select class="form-select" aria-label="Default select example" formControlName="sexo"
+                class="form-control shadow-sm  bg-body rounded">
                 <option value="Masculino">Masculino</option>
                 <option value="Femenino">Femenino</option>
             </select>
         </div>
-
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
 
         <button type="submit" [disabled]="usuarioForm.invalid" class="btn btn-primary">Guardar</button>
+
     </form>
 </div>
 <div class="">

@@ -3,16 +3,16 @@
     <form [formGroup]="colaboradorForm" (ngSubmit)="guardar()">
         <div class="form-group">
             <label>Nombre</label>
-            <input type="text" formControlName="nombre" class="form-control">
+            <input type="text" formControlName="nombre" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Apellido</label>
-            <input type="text" formControlName="apellido" class="form-control">
+            <input type="text" formControlName="apellido" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Cargo</label>
             <select class="form-select" aria-label="Default select example" formControlName="cargo"
-                class="form-control">
+                class="form-control shadow-sm  bg-body rounded">
                 <option value="auxiliar_veterinaria">Auxiliar veterinaria</option>
                 <option value="doctor_veterinario">Doctor veterinario</option>
             </select>
@@ -20,7 +20,7 @@
         <div class="form-group">
             <label>Especialidad</label>
             <select class="form-select" aria-label="Default select example" formControlName="especialidad"
-                class="form-control">
+                class="form-control shadow-sm  bg-body rounded">
                 <option value="ninguna">Ninguna</option>
                 <option value="cardiologo">Cardiologo</option>
                 <option value="pediatra">Pediatra</option>
@@ -30,12 +30,12 @@
         <div class="form-group">
             <label>Tipo Documento</label>
             <select class="form-select" aria-label="Default select example" formControlName="tipo_documento"
-                class="form-control">
+                class="form-control shadow-sm  bg-body rounded">
                 <option value="cc">Cedula de ciudadania</option>
                 <option value="pas">Pasaporte</option>
             </select>
         </div>
-        <div class="form-group">
+        <div class="form-group shadow-sm  bg-body rounded">
             <label>Numero Documento</label>
             <input type="number" formControlName="documento_identificacion" class="form-control">
         </div>

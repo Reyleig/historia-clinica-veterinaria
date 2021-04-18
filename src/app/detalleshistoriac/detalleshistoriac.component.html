@@ -3,52 +3,52 @@
     <form [formGroup]="detallesHistoriaCForm" (ngSubmit)="guardar()">
         <div class="form-group">
             <label>Temperatura</label>
-            <input type="text" formControlName="temperatura" class="form-control">
+            <input type="text" formControlName="temperatura" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Peso</label>
-            <input type="number" formControlName="peso" class="form-control">
+            <input type="number" formControlName="peso" class="form-control shadow-sm  bg-body rounded">
         </div>
-        <div class="form-group">
+        <div class="form-group ">
             <label>Frecuencia cardiaca</label>
-            <input type="number" formControlName="frecuencia_cardiaca" class="form-control">
+            <input type="number" formControlName="frecuencia_cardiaca" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Frecuencia rrespiratora</label>
-            <input type="number" formControlName="frecuencia_respiratoria" class="form-control">
+            <input type="number" formControlName="frecuencia_respiratoria" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Alimentacion</label>
-            <input type="text" formControlName="alimentacion" class="form-control">
+            <input type="text" formControlName="alimentacion" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Habitad</label>
-            <input type="text" formControlName="habitad" class="form-control">
+            <input type="text" formControlName="habitad" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Observacion</label>
-            <input type="text" formControlName="observacion" class="form-control">
+            <input type="text" formControlName="observacion" class="form-control shadow-sm  bg-body rounded">
         </div>
         <div class="form-group">
             <label>Nombre colaborador</label>
-            <select class="form-select" aria-label="Default select example" formControlName="colaborador"
-                class="form-control">
+            <select aria-label="Default select example" formControlName="colaborador"
+                class="form-control form-select shadow-sm  bg-body rounded">
                 <option [ngValue]="item"  *ngFor="let item of colaboradores">{{item.nombre}}</option>
             </select>
         </div>
         <div class="form-group">
             <label>Numero historia clinica</label>
-            <select class="form-select" aria-label="Default select example" formControlName="historiaClinica"
-                class="form-control">
+            <select aria-label="Default select example" formControlName="historiaClinica"
+                class="form-control form-select shadow-sm  bg-body rounded">
                 <option [ngValue]="item"  *ngFor="let item of historiasclinicas">{{item.id}}</option>
 
             </select>
         </div>
-        <button type="submit" [disabled]="detallesHistoriaCForm.invalid" class="btn btn-primary">Guardar</button>
+        <button type="submit" [disabled]="detallesHistoriaCForm.invalid" class="btn shadow-sm  bg-body rounded btn-primary">Guardar</button>
     </form>
 </div>
 <div class="">
-    <table class="table">
+    <table class="table ">
         <thead>
             <tr>
                 <th>ID</th>

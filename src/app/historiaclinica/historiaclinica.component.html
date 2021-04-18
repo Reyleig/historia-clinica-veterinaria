@@ -2,9 +2,9 @@
     <h2>Crear Historia Clinica</h2>
     <form [formGroup]="historiaclinicaForm" (ngSubmit)="guardar()">
         <label>Nombre mascota </label>
-        <div class="form-group">
+        <div class="form-group shadow-sm  bg-body rounded">
             <select class="form-select"  aria-label="Default select example" formControlName="mascota"
-                class="form-control">
+                class="form-control shadow-sm  bg-body rounded">
                 <option [ngValue]="item"  *ngFor="let item of mascotas">{{item.nombre}}</option>
             </select>
         </div>
