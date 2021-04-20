@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ColaboradorService {
-  private API_SERVER = "http://localhost:8080/colaborador/";
+  private API_SERVER = "https://backend-historias-app.herokuapp.com/colaborador/";
 
   constructor(private HttpClient: HttpClient) { }
 

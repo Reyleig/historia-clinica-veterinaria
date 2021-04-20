@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MascotaService {
-  private API_SERVER = "http://localhost:8080/mascota/";
+  private API_SERVER = "https://backend-historias-app.herokuapp.com/mascota/";
 
   constructor(private HttpClient: HttpClient) { }
 

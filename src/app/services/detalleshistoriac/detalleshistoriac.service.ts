@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DetalleshistoriacService {
-  private API_SERVER = "http://localhost:8080/detalleshistoriaclinica/";
+  private API_SERVER = "https://backend-historias-app.herokuapp.com/detalleshistoriaclinica/";
 
   constructor(private HttpClient: HttpClient) { }
 
