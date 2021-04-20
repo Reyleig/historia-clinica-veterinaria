@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
   
-  private API_SERVER = "https://veterinariaprueba.herokuapp.com/usuario/";
+  private API_SERVER = "https://backend-historias-app.herokuapp.com/usuario/";
 
   constructor(private HttpClient: HttpClient) { }
 
